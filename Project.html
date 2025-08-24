@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Our Learning Academy 🚀</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header>
+    <h1>Our Learning Academy 🚀</h1>
+    <h5>Training | Tech News | Freshers Guide</h5>
+    <p>Empowering young developers to level up their skills through corporate technologies</p>
+  </header>
+
+  <nav>
+    <a href="Project.html">Home</a>
+    <a href="courses.html">Courses</a>
+    <a href="register.html">Register</a>
+    <a href="contact.html">Contact</a>
+    <button class="dark-toggle" onclick="toggleDarkMode()">🌙 Toggle Mode</button>
+  </nav>
+
+  <section>
+    <h2>Welcome to Your Web Dev Journey 🌐</h2>
+    <iframe width="560" height="315" src="https://www.youtube.com/embed/FYErehuSuuw?si=BXaX8oMYnsIrIv49" title="YouTube video player" frameborder="0" allowfullscreen></iframe>
+    <p>
+      Kickstart your career in web development with our comprehensive tutorials and hands-on training modules. Perfect for beginners and freshers looking to become full-stack developers!
+    </p>
+  </section>
+
+  <section class="tech-section">
+    <h2>Full Stack Development Overview</h2>
+    <table>
+      <tr>
+        <th>Frontend</th><th>Backend</th><th>Database</th>
+      </tr>
+      <tr>
+        <td>HTML, CSS, JavaScript</td><td>Java, Python</td><td>MySQL</td>
+      </tr>
+      <tr>
+        <td>React, Angular</td><td>NodeJS, ExpressJS</td><td>MongoDB</td>
+      </tr>
+      <tr>
+        <td>Bootstrap, Tailwind</td><td>PHP, Ruby</td><td>AWS, Firebase</td>
+      </tr>
+    </table>
+  </section>
+
+  <section>
+    <h2>Popular Courses 📚</h2>
+    <div class="courses">
+      <div class="course-card">
+        <h3>Python Full-Stack Development</h3>
+        <p>Learn frontend + backend using Python, Django & React to build enterprise-grade apps.</p>
+      </div>
+      <div class="course-card">
+        <h3>Java Full-Stack Development</h3>
+        <p>Master Spring Boot backend development with Angular frontend and MySQL databases.</p>
+      </div>
+      <div class="course-card">
+        <h3>Data Science & AI</h3>
+        <p>AI-powered course with ML algorithms, Python, and deep learning projects.</p>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <p>© 2025 Our Learning Academy | 🚀 All Rights Reserved</p>
+    <a href="#">Instagram</a> | <a href="#">YouTube</a> | <a href="#">LinkedIn</a>
+  </footer>
+
+  <script>
+    // Toggle Dark Mode and save preference
+    function toggleDarkMode() {
+       document.body.classList.toggle('dark-mode');
+      if (document.body.classList.contains('dark-mode')) {
+        localStorage.setItem('darkMode', 'enabled');
+      } else {
+        localStorage.setItem('darkMode', 'disabled');
+      }
+    }
+
+    // On load, apply saved dark mode preference
+    window.addEventListener('DOMContentLoaded', () => {
+      if (localStorage.getItem('darkMode') === 'enabled') {
+        document.body.classList.add('dark-mode');
+      }
+    });
+  </script>
+</body>
+</html>

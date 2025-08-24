@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>Contact - Learning Academy</title>
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    /* Success Message Styling */
+    .success-message {
+      display: none;
+      margin-top: 15px;
+      padding: 12px;
+      background-color: #d4edda;
+      color: #155724;
+      border: 1px solid #c3e6cb;
+      border-radius: 6px;
+      font-weight: bold;
+      animation: fadeIn 0.5s ease-in-out;
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+      }
+      to {
+        opacity: 1;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Our Learning Academy 🚀</h1>
+    <h5>We would Love to Hear from You!</h5>
+  </header>
+
+  <nav>
+    <a href="Project.html">Home</a>
+    <a href="courses.html">Courses</a>
+    <a href="register.html">Register</a>
+    <a href="contact.html">Contact</a>
+    <button class="dark-toggle" onclick="toggleDarkMode()">🌙 Toggle Mode</button>
+  </nav>
+
+  <section>
+    <h2>Get in Touch 📩</h2>
+    <div class="contact-form">
+      <form id="contactForm">
+        <input type="text" placeholder="Your Name" required />
+        <input type="email" placeholder="Your Email" required />
+        <textarea rows="5" placeholder="Your Message" required></textarea>
+        <button type="submit">Send Message</button>
+      </form>
+      <!-- Success Message -->
+      <div class="success-message" id="successMsg">
+        ✅ Message Successfully Sent!
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <p>© 2025 Our Learning Academy | 🚀 All Rights Reserved</p>
+    <a href="#">Instagram</a> | <a href="#">YouTube</a> | <a href="#">LinkedIn</a>
+  </footer>
+
+  <script src="script.js"></script>
+  <script>
+    const form = document.getElementById("contactForm");
+    const successMsg = document.getElementById("successMsg");
+
+    form.addEventListener("submit", function (e) {
+      e.preventDefault();
+      successMsg.style.display = "block"; // Show success message
+      form.reset();
+
+      // Hide success message after 5 seconds
+      setTimeout(() => {
+        successMsg.style.display = "none";
+      }, 5000);
+    });
+  </script>
+</body>
+</html>

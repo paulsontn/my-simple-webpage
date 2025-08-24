@@ -1,0 +1,368 @@
+/* 🌟 Global Styles */
+body {
+  font-family: 'Segoe UI', sans-serif;
+  margin: 0;
+  padding: 0;
+  background: #fdfdfd;
+  color: #333;
+  transition: background 0.3s, color 0.3s;
+}
+
+/* Header */
+header {
+  background: linear-gradient(90deg, #1d3557, #457b9d);
+  color: white;
+  text-align: center;
+  padding: 25px;
+  border-bottom: 4px solid #f1faee;
+}
+header h1 {
+  margin: 0;
+  font-size: 42px;
+  letter-spacing: 1.5px;
+}
+header h5 {
+  margin: 6px 0;
+  font-weight: 400;
+}
+
+/* Navbar */
+nav {
+  display: flex;
+  justify-content: center;
+  gap: 25px;
+  background: #1d3557;
+  padding: 14px;
+  align-items: center;
+}
+nav a {
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 16px;
+  position: relative;
+}
+nav a::after {
+  content: '';
+  width: 0%;
+  height: 2px;
+  background: #ffd166;
+  position: absolute;
+  bottom: -4px;
+  left: 0;
+  transition: width 0.3s;
+}
+nav a:hover::after {
+  width: 100%;
+}
+
+.dark-toggle {
+  background: #f1faee;
+  color: #1d3557;
+  border: none;
+  padding: 7px 15px;
+  border-radius: 20px;
+  cursor: pointer;
+  font-size: 14px;
+  transition: background 0.3s;
+}
+.dark-toggle:hover {
+  background: #ddd;
+}
+
+/* Sections */
+section {
+  padding: 50px 20px;
+  text-align: center;
+}
+section h2 {
+  font-size: 28px;
+  margin-bottom: 20px;
+}
+
+/* Full Stack Section */
+.tech-section {
+  background: #f1f1f1;
+  padding: 30px;
+  transition: background 0.3s;
+}
+.tech-section table {
+  margin: auto;
+  border-collapse: collapse;
+  width: 70%;
+}
+.tech-section th,
+.tech-section td {
+  border: 1px solid #ccc;
+  padding: 12px;
+  text-align: center;
+}
+.tech-section th {
+  background: #457b9d;
+  color: white;
+}
+
+/* Courses Cards */
+.courses {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 25px;
+}
+.course-card {
+  background: white;
+  border-radius: 12px;
+  padding: 25px;
+  width: 260px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+.course-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.25);
+}
+.course-card h3 {
+  color: #1d3557;
+}
+
+/* Footer */
+footer {
+  background: #1d3557;
+  color: white;
+  text-align: center;
+  padding: 20px;
+  margin-top: 40px;
+}
+footer a {
+  color: #ffd166;
+  margin: 0 10px;
+  text-decoration: none;
+}
+footer a:hover {
+  text-decoration: underline;
+}
+
+/* 🌙 Dark Mode */
+body.dark-mode {
+  background: #121212;
+  color: #f0f0f0;
+}
+body.dark-mode header {
+  background: linear-gradient(90deg, #0d1b2a, #1d3557);
+  border-bottom: 4px solid #333;
+}
+body.dark-mode nav {
+  background: #0d1b2a;
+}
+body.dark-mode nav a {
+  color: #f1faee;
+}
+body.dark-mode .dark-toggle {
+  background: #333;
+  color: white;
+}
+body.dark-mode .course-card {
+  background: #1e1e1e;
+  border: 1px solid #444;
+}
+body.dark-mode .tech-section {
+  background: #1e1e1e;
+}
+body.dark-mode footer {
+  background: #0d1b2a;
+}
+/* Contact Form */
+.contact-form {
+  max-width: 600px;
+  margin: auto;
+  background: white;
+  padding: 30px;
+  border-radius: 12px;
+  box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.15);
+  transition: background 0.3s, color 0.3s;
+}
+
+.contact-form input,
+.contact-form textarea {
+  width: 100%;
+  padding: 12px;
+  margin: 10px 0;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  font-size: 15px;
+  font-family: inherit;
+  resize: vertical;
+  box-sizing: border-box;
+}
+
+.contact-form button {
+  background: #457b9d;
+  color: white;
+  border: none;
+  padding: 12px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: background 0.3s;
+}
+
+.contact-form button:hover {
+  background: #1d3557;
+}
+
+/* Dark mode overrides for contact form */
+body.dark-mode .contact-form {
+  background: #1e1e1e;
+  border: 1px solid #444;
+  color: #f0f0f0;
+}
+
+body.dark-mode .contact-form input,
+body.dark-mode .contact-form textarea {
+  background: #333;
+  border: 1px solid #555;
+  color: #f0f0f0;
+}
+
+body.dark-mode .contact-form input::placeholder,
+body.dark-mode .contact-form textarea::placeholder {
+  color: #bbb;
+}
+
+body.dark-mode .contact-form button {
+  background: #2a6f97;
+}
+
+body.dark-mode .contact-form button:hover {
+  background: #164d63;
+}
+/* Registration Form Container */
+.form-container {
+  max-width: 600px;
+  margin: 40px auto;
+  background: white;
+  padding: 30px 40px;
+  border-radius: 15px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+  font-family: 'Segoe UI', sans-serif;
+  transition: background 0.3s, color 0.3s;
+}
+
+.form-container h1 {
+  color: #264653;
+  margin-bottom: 25px;
+  text-align: center;
+  font-weight: 600;
+}
+
+/* Form Table - spacing and width */
+.form-container table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0 15px;
+}
+
+.form-container td {
+  padding: 8px 10px;
+  vertical-align: middle;
+  font-weight: 600;
+  font-size: 15px;
+  color: #333;
+}
+
+.form-container td:nth-child(2) {
+  width: 70%;
+}
+
+/* Inputs, Select, File */
+.form-container input[type="text"],
+.form-container input[type="number"],
+.form-container input[type="email"],
+.form-container select,
+.form-container input[type="file"] {
+  width: 100%;
+  padding: 10px 12px;
+  font-size: 15px;
+  border-radius: 7px;
+  border: 1px solid #bbb;
+  box-sizing: border-box;
+  transition: border-color 0.3s;
+  font-family: 'Segoe UI', sans-serif;
+}
+
+.form-container input[type="text"]:focus,
+.form-container input[type="number"]:focus,
+.form-container input[type="email"]:focus,
+.form-container select:focus,
+.form-container input[type="file"]:focus {
+  border-color: #457b9d;
+  outline: none;
+}
+
+/* Radio Buttons */
+.form-container input[type="radio"] {
+  margin-right: 6px;
+  cursor: pointer;
+}
+
+/* Buttons */
+.form-container input[type="submit"],
+.form-container input[type="reset"] {
+  background: #2a9d8f;
+  color: white;
+  border: none;
+  padding: 12px 25px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  border-radius: 8px;
+  margin: 5px 10px;
+  transition: background 0.3s;
+}
+
+.form-container input[type="submit"]:hover,
+.form-container input[type="reset"]:hover {
+  background: #1d6f6a;
+}
+
+/* Center buttons in last row */
+.form-container tr:last-child td {
+  text-align: center;
+  padding-top: 20px;
+}
+
+/* Dark mode overrides */
+body.dark-mode .form-container {
+  background: #1e1e1e;
+  color: #f0f0f0;
+  box-shadow: 0 4px 15px rgba(255, 255, 255, 0.1);
+}
+
+body.dark-mode .form-container td {
+  color: #ddd;
+}
+
+body.dark-mode .form-container input[type="text"],
+body.dark-mode .form-container input[type="number"],
+body.dark-mode .form-container input[type="email"],
+body.dark-mode .form-container select,
+body.dark-mode .form-container input[type="file"] {
+  background: #333;
+  border: 1px solid #555;
+  color: #eee;
+}
+
+body.dark-mode .form-container input::placeholder,
+body.dark-mode .form-container select {
+  color: #bbb;
+}
+
+body.dark-mode .form-container input[type="submit"],
+body.dark-mode .form-container input[type="reset"] {
+  background: #2a6f97;
+}
+
+body.dark-mode .form-container input[type="submit"]:hover,
+body.dark-mode .form-container input[type="reset"]:hover {
+  background: #164d63;
+}

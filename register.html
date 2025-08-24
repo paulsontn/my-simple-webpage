@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Register for a course</title>
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    /* Responsive form: switch table to block for smaller screens */
+    @media (max-width: 600px) {
+      .form-container table,
+      .form-container tr,
+      .form-container td {
+        display: block;
+        width: 100%;
+      }
+      .form-container tr {
+        margin-bottom: 15px;
+      }
+      .form-container td {
+        padding: 0;
+      }
+      .form-container td label {
+        display: block;
+        margin-bottom: 6px;
+        font-weight: 600;
+      }
+    }
+
+    /* Error styling */
+    .error-message {
+      color: #d93025;
+      font-size: 13px;
+      margin-top: 5px;
+      display: none;
+    }
+    input.error,
+    select.error,
+    textarea.error {
+      border-color: #d93025;
+      background-color: #fbe9e7;
+    }
+
+    /* Privacy note */
+    .privacy-note {
+      font-size: 13px;
+      color: #555;
+      margin-top: 15px;
+      font-style: italic;
+      text-align: center;
+    }
+
+    /* Success message */
+    #successMsg {
+      display: none;
+      margin-top: 20px;
+      padding: 15px;
+      background-color: #d4edda;
+      color: #155724;
+      border-radius: 8px;
+      font-weight: bold;
+      text-align: center;
+      animation: fadeIn 0.5s ease-in-out;
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+      }
+      to {
+        opacity: 1;
+      }
+    }
+
+    /* Disabled button style */
+    input[disabled] {
+      background: #999 !important;
+      cursor: not-allowed;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Our Learning Academy 🚀</h1>
+    <h5>Register for Your Future!</h5>
+  </header>
+
+  <nav>
+    <a href="Project.html">Home</a>
+    <a href="courses.html">Courses</a>
+    <a href="register.html">Register</a>
+    <a href="contact.html">Contact</a>
+    <button class="dark-toggle" onclick="toggleDarkMode()">🌙 Toggle Mode</button>
+  </nav>
+
+  <div class="form-container">
+    <h1>Student Registration Form 📝</h1>
+    <form id="registrationForm" novalidate>
+      <table>
+        <tr>
+          <td><label for="name">Name:</label></td>
+          <td>
+            <input type="text" id="name" name="name" placeholder="Enter Your Name" required />
+            <div class="error-message" id="error-name">Please enter your name.</div>
+          </td>
+        </tr>
+        <tr>
+          <td><label for="age">Age:</label></td>
+          <td>
+            <input type="number" id="age" name="age" placeholder="Enter Your Age" min="1" max="120" required />
+            <div class="error-message" id="error-age">Please enter a valid age (1-120).</div>
+          </td>
+        </tr>
+        <tr>
+          <td>Gender:</td>
+          <td>
+            <label><input type="radio" name="gender" value="Male" required /> Male</label>
+            <label style="margin-left: 15px;"><input type="radio" name="gender" value="Female" required /> Female</label>
+            <div class="error-message" id="error-gender">Please select your gender.</div>
+          </td>
+        </tr>
+        <tr>
+          <td><label for="email">Email:</label></td>
+          <td>
+            <input type="email" id="email" name="email" placeholder="Enter Your Email" required />
+            <div class="error-message" id="error-email">Please enter a valid email.</div>
+          </td>
+        </tr>
+        <tr>
+          <td><label for="course">Select Course:</label></td>
+          <td>
+            <select id="course" name="course" required>
+              <option value="" disabled selected>Select a course</option>
+              <option>Python</option>
+              <option>Java</option>
+              <option>C++</option>
+              <option>Data Science</option>
+            </select>
+            <div class="error-message" id="error-course">Please select a course.</div>
+          </td>
+        </tr>
+        <tr>
+          <td><label for="resume">Upload Resume:</label></td>
+          <td>
+            <input type="file" id="resume" name="resume" accept=".pdf,.doc,.docx" />
+            <small style="font-size: 12px; color: #555;">Accepted formats: PDF, DOC, DOCX</small>
+          </td>
+        </tr>
+        <tr>
+          <td colspan="2" style="text-align: center; padding-top: 20px;">
+            <label>
+              <input type="checkbox" id="terms" name="terms" required /> I agree to the <a href="#" target="_blank">Terms & Conditions</a>
+            </label>
+            <div class="error-message" id="error-terms">You must agree to the terms to register.</div>
+          </td>
+        </tr>
+        <tr>
+          <td colspan="2" style="text-align: center; padding-top: 15px;">
+            <input type="submit" id="submitBtn" value="Register" />
+            <input type="reset" value="Clear" />
+          </td>
+        </tr>
+      </table>
+    </form>
+
+    <div class="privacy-note">
+      We respect your privacy and will never share your data without permission.
+    </div>
+
+    <div id="successMsg">✅ Registration Successful! Thank you for joining us.</div>
+  </div>
+
+  <footer>
+    <p>© 2025 Our Learning Academy | 🚀 All Rights Reserved</p>
+    <a href="#">Instagram</a> | <a href="#">YouTube</a> | <a href="#">LinkedIn</a>
+  </footer>
+
+  <script>
+    function toggleDarkMode() {
+      document.body.classList.toggle("dark-mode");
+      localStorage.setItem(
+        "darkMode",
+        document.body.classList.contains("dark-mode") ? "enabled" : "disabled"
+      );
+    }
+    window.addEventListener("DOMContentLoaded", () => {
+      if (localStorage.getItem("darkMode") === "enabled") {
+        document.body.classList.add("dark-mode");
+      }
+    });
+
+    // Form Validation & Submission
+    const form = document.getElementById("registrationForm");
+    const successMsg = document.getElementById("successMsg");
+
+    form.addEventListener("submit", function (e) {
+      e.preventDefault();
+      let valid = true;
+
+      // Clear previous errors
+      form.querySelectorAll(".error-message").forEach(el => (el.style.display = "none"));
+      form.querySelectorAll("input, select").forEach(el => el.classList.remove("error"));
+
+      // Validate name
+      const name = form.name;
+      if (!name.value.trim()) {
+        valid = false;
+        showError("name");
+      }
+
+      // Validate age
+      const age = form.age;
+      if (!age.value || age.value < 1 || age.value > 120) {
+        valid = false;
+        showError("age");
+      }
+
+      // Validate gender
+      if (!form.gender.value) {
+        valid = false;
+        showError("gender");
+      }
+
+      // Validate email (simple regex)
+      const email = form.email;
+      const emailValid = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email.value);
+      if (!emailValid) {
+        valid = false;
+        showError("email");
+      }
+
+      // Validate course
+      const course = form.course;
+      if (!course.value) {
+        valid = false;
+        showError("course");
+      }
+
+      // Validate terms checkbox
+      const terms = form.terms;
+      if (!terms.checked) {
+        valid = false;
+        showError("terms");
+      }
+
+      if (!valid) return;
+
+      // Disable submit button & show loading text
+      const submitBtn = document.getElementById("submitBtn");
+      submitBtn.disabled = true;
+      submitBtn.value = "Registering...";
+
+      // Simulate form submission delay (replace with actual submit logic)
+      setTimeout(() => {
+        submitBtn.disabled = false;
+        submitBtn.value = "Register";
+        form.reset();
+        successMsg.style.display = "block";
+
+        // Auto hide success message after 5 seconds
+        setTimeout(() => {
+          successMsg.style.display = "none";
+        }, 5000);
+      }, 1500);
+    });
+
+    function showError(field) {
+      const input = document.getElementById(field) || document.querySelector(`[name=${field}]`);
+      if (input) input.classList.add("error");
+      const error = document.getElementById(`error-${field}`);
+      if (error) error.style.display = "block";
+    }
+  </script>
+</body>
+</html>
